@@ -87,18 +87,19 @@ cd /d "%~dp0"
 
 start cmd /k "cd server && npm start"
 start cmd /k "cd client && npm start"
+Double-click to start both parts of the app.
 ```
 
-Double-click to start both parts of the app.
-    Authentication
+### Authentication
 
-    Users can register and log in.
+Users can register and log in.
 
-    Authenticated users receive a JWT token stored in memory (via React Context).
+Authenticated users receive a JWT token stored in memory (via React Context).
 
-    Token is used to authorize rating and commenting actions.
+Token is used to authorize rating and commenting actions.
 
-API Overview
+### API Overview
+
 GET /api/search?q=query&page=0&limit=20
 
 Search HackerNews articles.
@@ -123,10 +124,12 @@ Add a new comment (requires JWT).
 DELETE /api/comments/:commentId
 
 Delete a comment (requires JWT).
-🧪 Testing
+
+### Testing
 
 You can test API endpoints using Postman or Insomnia. Frontend forms use these endpoints under the hood with error handling and real-time updates.
-Built With
+
+### Built With
 
     Frontend: React + MUI + React Router
 
