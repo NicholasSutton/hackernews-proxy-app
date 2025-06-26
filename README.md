@@ -32,10 +32,10 @@ A full-stack web application for searching and interacting with articles from Ha
 - MongoDB (or adjust if using a different database)
 
 ### Installation
-
+```bash
 1. Clone the repository:
 
-```bash
+
 git clone https://github.com/your-username/hackernews-search-app.git
 cd hackernews-search-app
 
@@ -87,6 +87,7 @@ cd /d "%~dp0"
 
 start cmd /k "cd server && npm start"
 start cmd /k "cd client && npm start"
+```
 
 Double-click to start both parts of the app.
     Authentication
