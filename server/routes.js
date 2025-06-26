@@ -13,7 +13,6 @@ const SALT_ROUNDS = 10;
 /* -------------------- AUTH -------------------- */
 
 // Register
-// Register
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) return res.status(400).json({ message: 'Username and password required' });
@@ -196,10 +195,17 @@ router.get('/search', async (req, res) => {
   const page = parseInt(req.query.page) || 0;  // default page 0
   const limit = parseInt(req.query.limit) || 20; // default 20 results per page
 
-  if (!query) return res.status(400).json({ message: 'Query parameter q is required' });
-
   try {
-    const response = await fetch(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&page=${page}&hitsPerPage=${limit}`);
+    let hnUrl;
+
+    if (!query || query.trim() === '') {
+      // No query provided — fetch recent posts
+      hnUrl = `https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}&hitsPerPage=${limit}`;
+    } else {
+      // Regular search
+      hnUrl = `https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(query)}&tags=story&page=${page}&hitsPerPage=${limit}`;
+    }
+    const response = await fetch(hnUrl);
 
     if (!response.ok) {
       const errorText = await response.text();

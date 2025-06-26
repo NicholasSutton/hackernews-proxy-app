@@ -68,7 +68,7 @@ const Search = () => {
   setError(null);
   try {
     const res = await fetch(
-      `http://localhost:3001/api/search?q=*&sort=recent&page=${pageNumber}&limit=${limit}`
+      `http://localhost:3001/api/search?page=${pageNumber}&limit=${limit}`
     );
     if (!res.ok) {
       const errorText = await res.text();
