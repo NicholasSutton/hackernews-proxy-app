@@ -17,9 +17,10 @@ A full-stack web application for searching and interacting with articles from Ha
 ## Project Structure
 
 /frontend # React frontend
-/server # Node.js/Express backend
-/contexts # React Context for authentication
 
+/server # Node.js/Express backend
+
+/contexts # React Context for authentication
 
 ---
 
@@ -89,6 +90,7 @@ start cmd /k "cd server && npm start"
 start cmd /k "cd client && npm start"
 Double-click to start both parts of the app.
 ```
+--- 
 
 ### Authentication
 
@@ -100,30 +102,29 @@ Token is used to authorize rating and commenting actions.
 
 ### API Overview
 
-GET /api/search?q=query&page=0&limit=20
-
-Search HackerNews articles.
-GET /api/recent
-
-Fetches the most recent articles.
-POST /api/rate
-
-Submit a user rating (requires JWT).
-DELETE /api/rate/:itemId
-
-Remove user's rating (requires JWT).
-GET /api/ratings/:itemId
-
-Fetch all ratings for a specific article.
-GET /api/comments/:itemId
-
-Get all comments for an article.
-POST /api/comments
-
-Add a new comment (requires JWT).
-DELETE /api/comments/:commentId
-
-Delete a comment (requires JWT).
+    GET /api/search?q=query&page=0&limit=20
+    Search HackerNews articles.
+    
+    GET /api/recent
+    Fetches the most recent articles.
+    
+    POST /api/rate
+    Submit a user rating (requires JWT).
+    
+    DELETE /api/rate/:itemId
+    Remove user's rating (requires JWT).
+    
+    GET /api/ratings/:itemId
+    Fetch all ratings for a specific article.
+    
+    GET /api/comments/:itemId
+    Get all comments for an article.
+    
+    POST /api/comments
+    Add a new comment (requires JWT).
+   
+    DELETE /api/comments/:commentId
+    Delete a comment (requires JWT).
 
 ### Testing
 
